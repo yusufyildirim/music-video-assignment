@@ -1,7 +1,16 @@
 {
   "name": "music-video",
   "version": "1.0.0",
+  "private": true,
   "main": "node_modules/expo/AppEntry.js",
+  "workspaces": [
+    "packages/*/*"
+  ],
+  "packageManager": "yarn@3.2.1",
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">=3.2.0"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -42,6 +51,5 @@
   },
   "resolutions": {
     "@types/react": "~17.0.21"
-  },
-  "private": true
+  }
 }
