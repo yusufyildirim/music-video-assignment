@@ -3176,6 +3176,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xi/design-system.text@workspace:packages/design-system/text":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.text@workspace:packages/design-system/text"
+  languageName: unknown
+  linkType: soft
+
 "@xmldom/xmldom@npm:~0.7.0":
   version: 0.7.5
   resolution: "@xmldom/xmldom@npm:0.7.5"
