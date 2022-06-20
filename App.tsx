@@ -1,3 +1,4 @@
+import 'expo-dev-client'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Text } from '@xi/design-system.text'
