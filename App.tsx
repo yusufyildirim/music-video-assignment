@@ -6,6 +6,8 @@ import { StatusBar } from 'expo-status-bar'
 import * as React from 'react'
 import { StyleSheet, View } from 'react-native'
 
+// export { default } from './.storybook/.ondevice/Storybook'
+
 const Stack = createNativeStackNavigator()
 
 const HomeScreen = () => (

@@ -80,4 +80,7 @@ buck-out/
 web-build/
 dist/
 
+# Storybook
+storybook-static/
+
 # @end expo-cli
