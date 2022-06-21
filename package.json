@@ -67,6 +67,7 @@
     "babel-plugin-react-native-web": "^0.18.1",
     "eslint": "^8.18.0",
     "eslint-config-universe": "^11.0.0",
+    "eslint-plugin-react-native": "^4.0.0",
     "jest-environment-jsdom": "^28.1.1",
     "prettier": "^2.7.1",
     "ts-node": "^10.8.1",
