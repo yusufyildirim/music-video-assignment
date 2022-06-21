@@ -1,2 +1,5 @@
 export { useColor } from './hooks/useColor'
 export * from './color'
+export { spacing } from './spacing'
+export { font, fontSize } from './typography'
+export type { FontWeight, FontName } from './typography'
