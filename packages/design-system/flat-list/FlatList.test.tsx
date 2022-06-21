@@ -3,7 +3,7 @@ import { spacing } from '@xi/design-system.theme'
 import { View } from 'react-native'
 
 import { FlatList } from './FlatList'
-import { flatListTestIDs } from './testIds'
+import { flatListTestIDs } from './testIDs'
 
 const data = [{ id: 1 }, { id: 2 }, { id: 3 }]
 
