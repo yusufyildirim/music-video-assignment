@@ -28,7 +28,7 @@ const background: Record<BackgroundColor, ThemedColor> = {
 export type TextColor = 'default' | 'suppressed'
 const text: Record<TextColor, ThemedColor> = {
   default: { dark: palette.white, light: palette.black },
-  suppressed: { dark: palette.gray700, light: palette.gray900 },
+  suppressed: { dark: palette.gray500, light: palette.gray700 },
 } as const
 
 type SemanticColor = typeof defaultTheme

@@ -5233,6 +5233,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xi/design-system.font@workspace:packages/design-system/font":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.font@workspace:packages/design-system/font"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.text@workspace:packages/design-system/text":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.text@workspace:packages/design-system/text"
@@ -14528,6 +14534,7 @@ __metadata:
     eslint-config-universe: ^11.0.0
     expo: ~45.0.0
     expo-dev-client: ~1.0.0
+    expo-font: ~10.1.0
     expo-splash-screen: ~0.15.1
     expo-status-bar: ~1.3.0
     jest: ^28.1.1

@@ -18,3 +18,6 @@ export const fontSize = {
   body2: 14,
   body3: 12,
 } as const
+
+export type FontSizeName = keyof typeof fontSize
+export type FontSize = typeof fontSize[FontSizeName]
