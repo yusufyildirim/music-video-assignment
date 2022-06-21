@@ -5239,6 +5239,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/design-system.theme@workspace:packages/design-system/theme":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.theme@workspace:packages/design-system/theme"
+  languageName: unknown
+  linkType: soft
+
 "@xmldom/xmldom@npm:~0.7.0":
   version: 0.7.5
   resolution: "@xmldom/xmldom@npm:0.7.5"
