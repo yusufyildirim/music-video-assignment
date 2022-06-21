@@ -5,7 +5,7 @@ import React from 'react'
 import { Text } from './Text'
 
 export default {
-  title: 'Text',
+  title: 'Design System/Text',
   component: Text,
   args: {
     children: 'Hello World',

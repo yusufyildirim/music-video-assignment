@@ -5233,6 +5233,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xi/browsing-experience.content@workspace:packages/browsing-experience/content":
+  version: 0.0.0-use.local
+  resolution: "@xi/browsing-experience.content@workspace:packages/browsing-experience/content"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.flat-list@workspace:packages/design-system/flat-list":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.flat-list@workspace:packages/design-system/flat-list"

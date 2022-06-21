@@ -2,7 +2,9 @@ import type { Spacing } from '@xi/design-system.theme'
 import React from 'react'
 import { FlatList as RNFlatList, ListRenderItem, View } from 'react-native'
 import type { FlatListProps as RNFlatListProps } from 'react-native'
+
 import { flatListTestIDs } from './testIds'
+export type { ListRenderItem } from 'react-native'
 
 export interface FlatListProps<T> extends Omit<RNFlatListProps<T>, 'renderItem'> {
   /***
