@@ -10,3 +10,6 @@ export const spacing = {
   s24: 24,
   s32: 32,
 } as const
+
+export type SpacingName = keyof typeof spacing
+export type Spacing = typeof spacing[SpacingName]

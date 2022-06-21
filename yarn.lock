@@ -5233,6 +5233,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@xi/design-system.flat-list@workspace:packages/design-system/flat-list":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.flat-list@workspace:packages/design-system/flat-list"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.font@workspace:packages/design-system/font":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.font@workspace:packages/design-system/font"
