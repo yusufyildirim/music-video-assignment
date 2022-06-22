@@ -22,6 +22,10 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+
         <MiniPlayer />
       </NavigationContainer>
     </QueryClientProvider>

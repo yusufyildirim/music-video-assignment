@@ -5239,6 +5239,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/browsing-experience.home-screen@workspace:packages/browsing-experience/home-screen":
+  version: 0.0.0-use.local
+  resolution: "@xi/browsing-experience.home-screen@workspace:packages/browsing-experience/home-screen"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.flat-list@workspace:packages/design-system/flat-list":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.flat-list@workspace:packages/design-system/flat-list"
