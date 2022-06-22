@@ -10,11 +10,7 @@ export interface MusicVideoCollectionProps {
   collection: MusicVideo[]
 }
 
-const renderItem: ListRenderItem<MusicVideo> = ({
-  item: { artistName, songName, viewCount, cover },
-}) => (
-  <MusicVideoTile artistName={artistName} songName={songName} viewCount={viewCount} cover={cover} />
-)
+const renderItem: ListRenderItem<MusicVideo> = ({ item }) => <MusicVideoTile {...item} />
 
 export const MusicVideoCollection = ({ title, collection }: MusicVideoCollectionProps) => {
   return <Collection title={title} collection={collection} renderItem={renderItem} />

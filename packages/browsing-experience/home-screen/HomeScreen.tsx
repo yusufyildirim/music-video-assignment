@@ -1,4 +1,4 @@
-import { MusicVideoCollection } from '@xi/browsing-experience.content'
+import { MusicVideoCollection, useContentQuery } from '@xi/browsing-experience.content'
 import { useColor } from '@xi/design-system.theme'
 import * as React from 'react'
 import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
@@ -35,10 +35,15 @@ const collection = [
 
 export function HomeScreen() {
   const color = useColor()
+  const { isLoading, data } = useContentQuery()
+  if (isLoading) return null
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: color.background.default }]}>
       <ScrollView>
+        {data?.map(genre => (
+          <MusicVideoCollection title={genre.name} collection={genre.videos} />
+        ))}
         <MusicVideoCollection title="Episodes for you" collection={collection} />
         <MusicVideoCollection
           title="Based on your recent listening"

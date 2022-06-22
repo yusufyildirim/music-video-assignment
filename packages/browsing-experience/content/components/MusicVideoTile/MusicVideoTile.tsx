@@ -9,25 +9,25 @@ const WIDTH = 250
 
 export interface MusicVideoTileProps extends MusicVideo {}
 
-export const MusicVideoTile = ({ artistName, songName, viewCount, cover }: MusicVideoTileProps) => {
+export const MusicVideoTile = ({ artist, image, title, viewCount }: MusicVideoTileProps) => {
   const humanizedViewCount = viewCount.toLocaleString(undefined, { notation: 'compact' })
 
   return (
     <View style={styles.container}>
       <Image
         source={{
-          uri: cover,
+          uri: image,
           width: WIDTH,
         }}
         style={styles.cover}
         resizeMode="cover"
       />
       <Text style={styles.song} numberOfLines={1}>
-        {songName}
+        {title}
       </Text>
       <View style={styles.bottom}>
         <Text fontWeight="medium" color="suppressed" numberOfLines={1} style={styles.artist}>
-          {artistName}
+          {artist}
         </Text>
         <Text
           fontWeight="medium"
@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
     width: WIDTH,
   },
   cover: { borderRadius: 8, height: 150, width: WIDTH },
-  song: { paddingTop: spacing.s8, paddingBottom: spacing.s4 },
   seperatorDot: { paddingHorizontal: spacing.s4 },
+  song: { paddingTop: spacing.s8, paddingBottom: spacing.s4 },
 })

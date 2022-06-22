@@ -1,6 +1,14 @@
+export interface Genre {
+  id: number
+  name: string
+  videos: MusicVideo[]
+}
+
 export interface MusicVideo {
-  cover: string
-  songName: string
-  artistName: string
+  id: number
+  artist: string
+  title: string
+  genreId: number
+  image: string
   viewCount: number
 }
