@@ -7,25 +7,31 @@ import type { MusicVideoCollectionProps } from './MusicVideoCollection'
 
 const collection: MusicVideo[] = [
   {
-    artistName: 'ODESZA',
-    songName: 'Behind The Sun',
+    artist: 'ODESZA',
+    title: 'Behind The Sun',
     viewCount: 9_587_664,
-    cover:
+    image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/503037/images/app/w522_h292.jpg',
+    genreId: 123,
+    id: 1,
   },
   {
-    artistName: 'Olly Murs ft. Travie McCoy',
-    songName: 'Wrapped Up',
+    artist: 'Olly Murs ft. Travie McCoy',
+    title: 'Wrapped Up',
     viewCount: 1_454_563,
-    cover:
+    image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/503130/images/app/w522_h292.jpg',
+    genreId: 123,
+    id: 2,
   },
   {
-    artistName: 'Joaquin Sabina',
-    songName: 'Dieguitos y Mafaldas',
+    artist: 'Joaquin Sabina',
+    title: 'Dieguitos y Mafaldas',
     viewCount: 42_114,
-    cover:
+    image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/504752/images/app/w522_h292.jpg',
+    genreId: 123,
+    id: 3,
   },
 ]
 

@@ -1,5 +1,6 @@
 import { get } from '@xi/platform.http'
 import { useQuery } from 'react-query'
+
 import { Genre, MusicVideo } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
