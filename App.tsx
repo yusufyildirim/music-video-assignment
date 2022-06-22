@@ -1,41 +1,29 @@
 import 'expo-dev-client'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Text } from '@xi/design-system.text'
-import { useColor } from '@xi/design-system.theme'
-import { StatusBar } from 'expo-status-bar'
+import { HomeScreen } from '@xi/browsing-experience.home-screen'
+import { useLoadFonts } from '@xi/design-system.font'
 import * as React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { MiniPlayer } from './packages/listening-experience/mini-player'
+
+// Enable this to use Storybook in native app
 // export { default } from './.storybook/.ondevice/Storybook'
 
 const Stack = createNativeStackNavigator()
 
-const HomeScreen = () => {
-  const color = useColor()
-
-  return (
-    <View style={[styles.container, { backgroundColor: color.background.default }]}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  )
-}
+const queryClient = new QueryClient()
 
 export default function App() {
+  const fontsLoaded = useLoadFonts()
+  if (!fontsLoaded) return null
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <QueryClientProvider client={queryClient}>
+      <NavigationContainer>
+        <MiniPlayer />
+      </NavigationContainer>
+    </QueryClientProvider>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
