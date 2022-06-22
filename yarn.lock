@@ -5263,6 +5263,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/listening-experience.mini-player@workspace:packages/listening-experience/mini-player":
+  version: 0.0.0-use.local
+  resolution: "@xi/listening-experience.mini-player@workspace:packages/listening-experience/mini-player"
+  languageName: unknown
+  linkType: soft
+
+"@xi/platform.utils@workspace:packages/platform/utils":
+  version: 0.0.0-use.local
+  resolution: "@xi/platform.utils@workspace:packages/platform/utils"
+  languageName: unknown
+  linkType: soft
+
 "@xmldom/xmldom@npm:~0.7.0":
   version: 0.7.5
   resolution: "@xmldom/xmldom@npm:0.7.5"
@@ -14536,6 +14548,7 @@ __metadata:
   resolution: "music-video@workspace:."
   dependencies:
     "@babel/core": ^7.12.9
+    "@expo/vector-icons": ^13.0.0
     "@react-native-async-storage/async-storage": ^1.17.6
     "@react-native-community/datetimepicker": ^6.1.3
     "@react-native-community/slider": ^4.2.3
