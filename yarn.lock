@@ -5275,6 +5275,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/platform.http@workspace:packages/platform/http":
+  version: 0.0.0-use.local
+  resolution: "@xi/platform.http@workspace:packages/platform/http"
+  languageName: unknown
+  linkType: soft
+
 "@xi/platform.utils@workspace:packages/platform/utils":
   version: 0.0.0-use.local
   resolution: "@xi/platform.utils@workspace:packages/platform/utils"
