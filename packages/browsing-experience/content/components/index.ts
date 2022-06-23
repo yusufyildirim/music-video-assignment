@@ -5,3 +5,4 @@ export { MusicVideoTile } from './MusicVideoTile/MusicVideoTile'
 export { GenreTile } from './GenreTile/GenreTile'
 
 export { MusicVideoCollection } from './MusicVideoCollection/MusicVideoCollection'
+export { GenreCollection } from './GenreCollection/GenreCollection'

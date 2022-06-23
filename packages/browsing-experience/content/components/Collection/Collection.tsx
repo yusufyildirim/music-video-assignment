@@ -33,7 +33,7 @@ export function Collection<T>({
         horizontal={horizontal}
         data={collection}
         inset={horizontal ? HORIZONTAL_SPACING : 0}
-        itemSpacing={spacing.s16}
+        itemSpacing={itemSpacing}
         renderItem={renderItem}
         showsHorizontalScrollIndicator={false}
         numColumns={numColumns}
