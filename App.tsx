@@ -6,6 +6,7 @@ import { HomeScreen } from '@xi/browsing-experience.home-screen'
 import { useLoadFonts } from '@xi/design-system.font'
 import { Icon } from '@xi/design-system.icon'
 import { color } from '@xi/design-system.theme'
+import { SearchResultModal } from '@xi/search-and-discovery.search-result-modal'
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
