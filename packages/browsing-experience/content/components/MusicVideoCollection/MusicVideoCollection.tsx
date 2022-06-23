@@ -1,4 +1,5 @@
 import type { ListRenderItem } from '@xi/design-system.flat-list'
+import { spacing } from '@xi/design-system.theme'
 import React from 'react'
 
 import { MusicVideo } from '../../types'
@@ -13,5 +14,5 @@ export interface MusicVideoCollectionProps {
 const renderItem: ListRenderItem<MusicVideo> = ({ item }) => <MusicVideoTile {...item} />
 
 export const MusicVideoCollection = ({ title, collection }: MusicVideoCollectionProps) => {
-  return <Collection title={title} collection={collection} renderItem={renderItem} />
+  return <Collection horizontal title={title} collection={collection} renderItem={renderItem} />
 }
