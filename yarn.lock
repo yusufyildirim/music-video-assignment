@@ -4633,6 +4633,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash@npm:^4":
+  version: 4.14.182
+  resolution: "@types/lodash@npm:4.14.182"
+  checksum: 7dd137aa9dbabd632408bd37009d984655164fa1ecc3f2b6eb94afe35bf0a5852cbab6183148d883e9c73a958b7fec9a9bcf7c8e45d41195add6a18c34958209
+  languageName: node
+  linkType: hard
+
 "@types/markdown-to-jsx@npm:^6.11.3":
   version: 6.11.3
   resolution: "@types/markdown-to-jsx@npm:6.11.3"
@@ -14667,6 +14674,7 @@ __metadata:
     "@testing-library/jest-native": ^4.0.5
     "@testing-library/react-native": ^9.1.0
     "@types/jest": ^28.1.2
+    "@types/lodash": ^4
     "@types/react": ~17.0.21
     "@types/react-native": ~0.66.13
     "@typescript-eslint/eslint-plugin": ^5.28.0
@@ -14684,6 +14692,7 @@ __metadata:
     jest: ^28.1.1
     jest-environment-jsdom: ^28.1.1
     jest-expo: ^45.0.1
+    lodash: ^4.17.21
     prettier: ^2.7.1
     react: 17.0.2
     react-dom: 17.0.2

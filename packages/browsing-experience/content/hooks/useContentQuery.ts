@@ -1,7 +1,8 @@
 import { get } from '@xi/platform.http'
+import _ from 'lodash'
 import { useQuery } from 'react-query'
 
-import { ContentCollection, Genre, MusicVideo, MusicVideoCollection } from '../types'
+import { ContentCollection, Genre, MusicVideoContentCollection } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
 
@@ -36,101 +37,59 @@ interface APIMusicVideo {
  * BUT I THOUGHT IT'D BE OVERKILL SINCE THIS IS NOT A REAL APPLICATION.
  */
 
-//#region DATA MAPPERS
-
-/**
- * It takes an array of videos and returns an object where the keys are genre IDs and the values are
- * arrays of videos
- * @param {Video[]} videos - Video[]
- * @returns An object with genreIds as keys and an array of videos as values.
- */
-const groupVideosByGenre = (videos: APIMusicVideo[]) => {
-  return videos.reduce((acc, video) => {
-    const { id, artist, genre_id: genreId, image_url: image, title } = video
-    if (acc[genreId] === undefined) acc[genreId] = []
-
-    acc[genreId].push({
-      id,
-      artist,
-      genreId,
-      image,
-      title,
-      // Generate a fake view count
-      viewCount: Math.floor(Math.random() * 1_000_000),
-    })
-    return acc
-  }, {} as Record<number, MusicVideo[]>)
-}
-
-/**
- * Given a list of videos and a list of genres, return a list of genres with the videos for each
- * genre.
- *
- * @returns An array of objects with the genre id and videos
- */
-const mapVideosToGenres = ({ videos, genres }: APIContenResult): Genre[] => {
-  const videosByGenre = groupVideosByGenre(videos)
-  return genres.map(genre => ({
-    ...genre,
-    videos: videosByGenre[genre.id] || [],
-  }))
-}
-
-/**
- * "Return an array of random videos from the given array of videos."
- *
- * The function takes two arguments:
- *
- * videos: An array of MusicVideo objects
- * count: The number of random videos to return
- * The function returns an array of MusicVideo objects
- * @param {MusicVideo[]} videos - MusicVideo[] - The array of videos to pick from
- * @param {number} count - number - The number of videos to pick
- * @returns An array of random videos
- */
-function pickRandomVideos(videos: MusicVideo[], count: number) {
-  // Meaning, there's not enough video in the array to randomize
-  if (count > videos.length) return videos
-
-  return Array(count)
-    .fill(undefined)
-    .map(() => videos[Math.floor(Math.random() * videos.length)])
-}
-
-/***
- * Returns 10 randomly selected genres with 10 (max) randomly selected videos in them
- */
-function pickRandomGenresWithRandomVideos(genres: Genre[]) {
-  // We filter genres that has at least 3 music videos to make sure it'll
-  // have enough material to show on the ui when displayed.
-  const filteredGenres = genres.filter(genre => genre.videos.length > 3)
-
-  // Here we create an array with 10 elements and fill that with randomly picked genres
-  return Array(10)
-    .fill(undefined)
-    .map(() => {
-      const genre = filteredGenres[Math.floor(Math.random() * filteredGenres.length)]
-
-      return {
-        ...genre,
-        videos: pickRandomVideos(genre.videos, 10),
-      }
-    })
-}
-
-//#endregion
-
 /***
  * Fetchs content data from the service and maps that the data shape we need.
  */
-const fetchContent = async () => {
+const fetchContent = async (): Promise<ContentCollection[]> => {
   const data: APIContenResult = await get('/data/dataset.json')
-  const genresWithVideos = mapVideosToGenres(data)
 
-  const genres = pickRandomGenresWithRandomVideos(genresWithVideos).map<MusicVideoCollection>(
-    g => ({ __typename: 'MusicVideoCollection', collection: g.videos, name: g.name }),
-  )
-  return genres
+  // Map videos data
+  const videosByGenre = _.chain(data.videos)
+    .map(video => ({
+      id: video.id,
+      artist: video.artist,
+      genreId: video.genre_id,
+      image: video.image_url,
+      title: video.title,
+      viewCount: Math.floor(Math.random() * 1_000_000),
+    }))
+    .groupBy('genreId')
+    .value()
+
+  const suggestedGenresWithVideos: MusicVideoContentCollection[] = _.chain(data.genres)
+    // Pick and map 10 random music video related to every genre
+    .map(genre => ({ ...genre, videos: _.sampleSize(videosByGenre[genre.id], 10) }))
+    // Filter out genres that has less than 3 music videos to make sure it'll
+    // have enough material to show on the ui when displayed.
+    .filter(genre => genre.videos.length > 3)
+    // Pick 10 random genres
+    .sampleSize(10)
+    .map(g => ({
+      __typename: 'MusicVideoCollection' as const,
+      collection: g.videos,
+      name: g.name,
+    }))
+    .value()
+
+  const genresForYou = _.chain(data.genres)
+    .sampleSize(5)
+    .map<Genre>(genre => ({
+      ...genre,
+      videos: [],
+      // Pick a random video belong to the genre and use its image as the genre cover
+      image: _.sample(videosByGenre[genre.id])?.image,
+    }))
+    .value()
+
+  const content = [
+    {
+      __typename: 'GenreCollection' as const,
+      collection: genresForYou,
+      name: 'Genres for you',
+    },
+    ...suggestedGenresWithVideos,
+  ]
+  return content
 }
 
 /**
