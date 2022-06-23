@@ -7,6 +7,7 @@ export type {
   ContentCollection,
   GenreContentCollection,
   MusicVideoContentCollection,
+  APIContenResult,
 } from './types'
 
 export { ContentPainter } from './ContentPainter'

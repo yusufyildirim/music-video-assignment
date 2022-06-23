@@ -1,3 +1,23 @@
+// Types that starts with `API` represents expected shape of the data that'll fetched from the backend
+export interface APIContenResult {
+  genres: APIGenre[]
+  videos: APIMusicVideo[]
+}
+
+interface APIGenre {
+  id: number
+  name: string
+}
+
+interface APIMusicVideo {
+  id: number
+  artist: string
+  title: string
+  release_year: number
+  genre_id: number
+  image_url: string
+}
+
 export interface Genre {
   id: number
   name: string

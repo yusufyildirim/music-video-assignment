@@ -2,29 +2,9 @@ import { get } from '@xi/platform.http'
 import _ from 'lodash'
 import { useQuery } from 'react-query'
 
-import { ContentCollection, Genre, MusicVideoContentCollection } from '../types'
+import { APIContenResult, ContentCollection, Genre, MusicVideoContentCollection } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
-
-// Types that starts with `API` represents expected shape of the data that'll fetched from the backend
-interface APIContenResult {
-  genres: APIGenre[]
-  videos: APIMusicVideo[]
-}
-
-interface APIGenre {
-  id: number
-  name: string
-}
-
-interface APIMusicVideo {
-  id: number
-  artist: string
-  title: string
-  release_year: number
-  genre_id: number
-  image_url: string
-}
 
 /**
  *** DISCLAIMER: ***
