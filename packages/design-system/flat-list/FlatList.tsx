@@ -16,7 +16,7 @@ export interface FlatListProps<T> extends Omit<RNFlatListProps<T>, 'renderItem'>
   /***
    * Adds `spacer` between the rendered items.
    */
-  itemSpacing: Spacing
+  itemSpacing?: Spacing
 
   // `renderItem` prop is nullable on the original impl, we make it required
   renderItem: ListRenderItem<T>
@@ -25,7 +25,7 @@ export interface FlatListProps<T> extends Omit<RNFlatListProps<T>, 'renderItem'>
 /***
  * Optimized and enhanced version of the good old FlatList
  */
-export function FlatList<T>({ itemSpacing, inset, ...props }: FlatListProps<T>) {
+export function FlatList<T>({ itemSpacing = 0, inset, ...props }: FlatListProps<T>) {
   const renderItemRef = React.useRef(props.renderItem)
   renderItemRef.current = props.renderItem
 
@@ -75,10 +75,9 @@ export function FlatList<T>({ itemSpacing, inset, ...props }: FlatListProps<T>) 
   }, [inset, props.horizontal])
 
   const contentOffset = React.useMemo(() => {
-    if (!inset) return undefined
-    if (props.horizontal) return { x: -inset, y: 0 }
+    if (!inset || !props.horizontal) return undefined
 
-    return { y: -inset, x: 0 }
+    return { x: -inset, y: 0 }
   }, [inset, props.horizontal])
 
   return (
