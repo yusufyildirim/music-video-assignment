@@ -29,18 +29,43 @@ export function FlatList<T>({ itemSpacing, inset, ...props }: FlatListProps<T>) 
   const renderItemRef = React.useRef(props.renderItem)
   renderItemRef.current = props.renderItem
 
+  const ItemSeparatorComponent = React.useCallback(() => {
+    return (
+      <View testID={flatListTestIDs.spacer} style={{ width: itemSpacing, height: itemSpacing }} />
+    )
+  }, [itemSpacing])
+
   /***
    * Referential equality optimization
    * Lifts `renderItem` memoization burden from the the developers.
    * Memoizes the callback by default and calls the `renderItemRef` when necessary.
    */
-  const renderItem = React.useCallback<ListRenderItem<T>>(info => {
-    return renderItemRef.current?.(info)
-  }, [])
+  const renderItem = React.useCallback<ListRenderItem<T>>(
+    info => {
+      const Component = renderItemRef.current?.(info)
 
-  const ItemSeparatorComponent = React.useCallback(() => {
-    return <View testID={flatListTestIDs.spacer} style={{ width: itemSpacing }} />
-  }, [itemSpacing])
+      // FlatList doesn't support column spacing.
+      // We mimic that functionality right here.
+      if (
+        props.numColumns &&
+        itemSpacing &&
+        // If the remainder of the `mod` operation isn't `0`,
+        // it means that the element isn't on the first col,
+        // so, spacer should be added.
+        info.index % props.numColumns
+      ) {
+        return (
+          <>
+            <ItemSeparatorComponent />
+            {Component}
+          </>
+        )
+      }
+
+      return Component
+    },
+    [props.numColumns, itemSpacing, ItemSeparatorComponent],
+  )
 
   const contentInset = React.useMemo(() => {
     if (!inset) return undefined
