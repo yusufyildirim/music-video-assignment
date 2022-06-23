@@ -5274,6 +5274,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/design-system.icon@workspace:packages/design-system/icon":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.icon@workspace:packages/design-system/icon"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.text@workspace:packages/design-system/text":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.text@workspace:packages/design-system/text"

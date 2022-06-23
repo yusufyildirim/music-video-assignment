@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons'
+import { Icon } from '@xi/design-system.icon'
 import { Text } from '@xi/design-system.text'
 import { spacing, color } from '@xi/design-system.theme'
 import { Image, StyleSheet, View } from 'react-native'
@@ -28,7 +28,7 @@ export function MiniPlayer() {
             {artist}
           </Text>
         </View>
-        <Ionicons name="play" size={24} color="white" />
+        <Icon name="play" size={24} />
       </View>
     </View>
   )

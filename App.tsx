@@ -1,15 +1,15 @@
 import 'expo-dev-client'
-import { Ionicons } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { HomeScreen } from '@xi/browsing-experience.home-screen'
 import { useLoadFonts } from '@xi/design-system.font'
-import { color } from '@xi/design-system.theme'
+import { color, useColor } from '@xi/design-system.theme'
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { MiniPlayer } from './packages/listening-experience/mini-player'
+import { Icon } from '@xi/design-system.icon'
 
 // Enable this to use Storybook in native app
 // export { default } from './.storybook/.ondevice/Storybook'
@@ -52,7 +52,9 @@ export default function App() {
             component={HomeStack}
             options={{
               headerShown: false,
-              tabBarIcon: tab => <Ionicons name="home" size={24} color={tab.color} />,
+              tabBarIcon: ({ focused }) => (
+                <Icon name="home" size={24} color={focused ? 'default' : 'pale'} />
+              ),
             }}
           />
         </Tab.Navigator>

@@ -15,6 +15,7 @@ export const palette = {
   green500: '#30AA4C',
   yellow500: '#F8CB45',
   red500: '#FF5A54',
+  blue500: '#00A4FF',
 
   /*** OTHER COLORS ***/
   orange900: '#ff8000',

@@ -31,22 +31,36 @@ const text: Record<TextColor, ThemedColor> = {
   suppressed: { dark: palette.gray500, light: palette.gray700 },
 } as const
 
+/*** TEXT COLORS ***/
+export type IconColor = 'default' | 'pale' | 'info' | 'success' | 'warning' | 'error'
+const icon: Record<IconColor, ThemedColor> = {
+  default: { dark: palette.white, light: palette.black },
+  pale: { dark: palette.gray500, light: palette.gray700 },
+  info: { dark: palette.blue500, light: palette.blue500 },
+  success: { dark: palette.green500, light: palette.green500 },
+  warning: { dark: palette.yellow500, light: palette.yellow500 },
+  error: { dark: palette.red500, light: palette.red500 },
+} as const
+
 type SemanticColor = typeof defaultTheme
 
 export const semantic = {
   text,
   background,
+  icon,
 }
 
 /// a.k.a dark theme
 const defaultTheme = {
   text: getByColorScheme(text, 'dark'),
   background: getByColorScheme(background, 'dark'),
+  icon: getByColorScheme(icon, 'dark'),
 }
 
 const lightTheme: SemanticColor = {
   text: getByColorScheme(text, 'light'),
   background: getByColorScheme(background, 'light'),
+  icon: getByColorScheme(icon, 'light'),
 }
 
 export const semanticByColorScheme: Record<ColorScheme, SemanticColor> = {
