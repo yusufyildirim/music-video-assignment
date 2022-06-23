@@ -1,7 +1,7 @@
 import { get } from '@xi/platform.http'
 import { useQuery } from 'react-query'
 
-import { Genre, MusicVideo } from '../types'
+import { ContentCollection, Genre, MusicVideo, MusicVideoCollection } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
 
@@ -127,7 +127,9 @@ const fetchContent = async () => {
   const data: APIContenResult = await get('/data/dataset.json')
   const genresWithVideos = mapVideosToGenres(data)
 
-  const genres = pickRandomGenresWithRandomVideos(genresWithVideos)
+  const genres = pickRandomGenresWithRandomVideos(genresWithVideos).map<MusicVideoCollection>(
+    g => ({ __typename: 'MusicVideoCollection', collection: g.videos, name: g.name }),
+  )
   return genres
 }
 
