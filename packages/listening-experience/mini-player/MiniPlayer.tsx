@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   infoContainer: { paddingHorizontal: spacing.s12, flex: 1 },
   outerContainer: {
     position: 'absolute',
-    bottom: spacing.s24,
+    bottom: spacing.s64 + spacing.s16,
     left: 0,
     width: '100%',
     justifyContent: 'center',
