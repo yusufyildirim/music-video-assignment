@@ -19,22 +19,25 @@ function getByColorScheme<T extends string>(
 }
 
 /*** BACKGROUND COLORS ***/
-export type BackgroundColor = 'default'
+export type BackgroundColor = 'default' | 'contrast'
 const background: Record<BackgroundColor, ThemedColor> = {
   default: { dark: palette.gray900, light: palette.white },
+  contrast: { dark: palette.white, light: palette.gray900 },
 }
 
 /*** TEXT COLORS ***/
-export type TextColor = 'default' | 'suppressed'
+export type TextColor = 'default' | 'contrast' | 'suppressed'
 const text: Record<TextColor, ThemedColor> = {
   default: { dark: palette.white, light: palette.black },
+  contrast: { dark: palette.black, light: palette.white },
   suppressed: { dark: palette.gray500, light: palette.gray700 },
 } as const
 
 /*** TEXT COLORS ***/
-export type IconColor = 'default' | 'pale' | 'info' | 'success' | 'warning' | 'error'
+export type IconColor = 'default' | 'contrast' | 'pale' | 'info' | 'success' | 'warning' | 'error'
 const icon: Record<IconColor, ThemedColor> = {
   default: { dark: palette.white, light: palette.black },
+  contrast: { dark: palette.black, light: palette.white },
   pale: { dark: palette.gray500, light: palette.gray700 },
   info: { dark: palette.blue500, light: palette.blue500 },
   success: { dark: palette.green500, light: palette.green500 },

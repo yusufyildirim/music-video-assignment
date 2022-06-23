@@ -14,7 +14,7 @@ export const Text: React.FC<TextProps> = ({
   children,
   color = 'default',
   fontWeight = 'bold',
-  fontSize = 14,
+  fontSize = DEFAULT_FONT_SIZE,
   ...props
 }) => {
   const colors = useColor()

@@ -5310,6 +5310,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/search-and-discovery.search-screen@workspace:packages/search-and-discovery/search-screen":
+  version: 0.0.0-use.local
+  resolution: "@xi/search-and-discovery.search-screen@workspace:packages/search-and-discovery/search-screen"
+  languageName: unknown
+  linkType: soft
+
 "@xmldom/xmldom@npm:~0.7.0":
   version: 0.7.5
   resolution: "@xmldom/xmldom@npm:0.7.5"
