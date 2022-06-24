@@ -7,9 +7,13 @@ import { SafeAreaView, StyleSheet, View } from 'react-native'
 import { SearchBar } from './components'
 import { useSearchScreenContentQuery } from './hooks'
 
-export function SearchScreen() {
+export function SearchScreen({ navigation }) {
   const { isLoading, data } = useSearchScreenContentQuery()
   if (isLoading) return null
+
+  const onSearchBarPress = () => {
+    navigation.navigate('SearchResultModal')
+  }
 
   return (
     <SafeAreaView>
@@ -20,7 +24,7 @@ export function SearchScreen() {
               Search
             </Text>
             <View style={styles.searchBar}>
-              <SearchBar />
+              <SearchBar onPress={onSearchBarPress} />
             </View>
           </>
         }

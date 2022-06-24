@@ -29,6 +29,11 @@ const HomeStack = () => (
 const SearchStack = () => (
   <Stack.Navigator>
     <Stack.Screen name="SearchScreen" component={SearchScreen} options={{ headerShown: false }} />
+    <Stack.Screen
+      name="SearchResultModal"
+      component={SearchResultModal}
+      options={{ headerShown: false, presentation: 'containedModal', animation: 'fade' }}
+    />
   </Stack.Navigator>
 )
 

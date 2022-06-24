@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons'
 import { IconColor, useColor } from '@xi/design-system.theme'
 
-export type IconName = 'play' | 'home' | 'search'
+export type IconName = 'play' | 'home' | 'search' | 'filter'
 
 export interface IconProps {
   name: IconName
