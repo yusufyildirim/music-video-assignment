@@ -19,10 +19,11 @@ function getByColorScheme<T extends string>(
 }
 
 /*** BACKGROUND COLORS ***/
-export type BackgroundColor = 'default' | 'contrast'
+export type BackgroundColor = 'default' | 'contrast' | 'brand'
 const background: Record<BackgroundColor, ThemedColor> = {
   default: { dark: palette.gray900, light: palette.white },
   contrast: { dark: palette.white, light: palette.gray900 },
+  brand: { dark: palette.orange900, light: palette.orange900 },
 }
 
 /*** TEXT COLORS ***/

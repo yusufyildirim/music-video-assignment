@@ -26,23 +26,15 @@ export interface FlatListProps<T> extends Omit<RNFlatListProps<T>, 'renderItem'>
  * Optimized and enhanced version of the good old FlatList
  */
 export function FlatList<T>({ itemSpacing = 0, inset, ...props }: FlatListProps<T>) {
-  const renderItemRef = React.useRef(props.renderItem)
-  renderItemRef.current = props.renderItem
-
   const ItemSeparatorComponent = React.useCallback(() => {
     return (
       <View testID={flatListTestIDs.spacer} style={{ width: itemSpacing, height: itemSpacing }} />
     )
   }, [itemSpacing])
 
-  /***
-   * Referential equality optimization
-   * Lifts `renderItem` memoization burden from the the developers.
-   * Memoizes the callback by default and calls the `renderItemRef` when necessary.
-   */
   const renderItem = React.useCallback<ListRenderItem<T>>(
     info => {
-      const Component = renderItemRef.current?.(info)
+      const Component = props.renderItem(info)
 
       // FlatList doesn't support column spacing.
       // We mimic that functionality right here.
@@ -64,7 +56,8 @@ export function FlatList<T>({ itemSpacing = 0, inset, ...props }: FlatListProps<
 
       return Component
     },
-    [props.numColumns, itemSpacing, ItemSeparatorComponent],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.numColumns, props.renderItem, itemSpacing, ItemSeparatorComponent],
   )
 
   const contentInset = React.useMemo(() => {
