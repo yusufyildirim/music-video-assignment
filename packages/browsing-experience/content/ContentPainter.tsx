@@ -1,11 +1,15 @@
 import { FlatList } from '@xi/design-system.flat-list'
 import { FlatListProps, ListRenderItem } from 'react-native'
 
-import { GenreCollection, MusicVideoCollection } from './components'
+import { GenreCollection, MusicVideoCollection, VerticalMusicVideoCollection } from './components'
 import { ContentCollection } from './types'
 
 const renderItem: ListRenderItem<ContentCollection> = ({ item, index }) => {
   if (item.__typename === 'MusicVideoCollection') {
+    if (item.vertical) {
+      return <VerticalMusicVideoCollection title={item.name} collection={item.collection} />
+    }
+
     return <MusicVideoCollection title={item.name} collection={item.collection} />
   }
 

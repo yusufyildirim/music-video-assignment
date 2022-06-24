@@ -42,6 +42,7 @@ export interface ContentCollectionBase<T> {
 
 export interface MusicVideoContentCollection extends ContentCollectionBase<MusicVideo> {
   __typename: 'MusicVideoCollection'
+  vertical?: boolean
 }
 
 export interface GenreContentCollection extends ContentCollectionBase<Genre> {

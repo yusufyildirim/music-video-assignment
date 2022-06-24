@@ -1,5 +1,4 @@
 import type { ListRenderItem } from '@xi/design-system.flat-list'
-import { spacing } from '@xi/design-system.theme'
 import React from 'react'
 
 import { MusicVideo } from '../../types'

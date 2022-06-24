@@ -63,11 +63,17 @@ const fetchContent = async (): Promise<ContentCollection[]> => {
 
   const content = [
     {
+      __typename: 'MusicVideoCollection' as const,
+      collection: suggestedGenresWithVideos[0].collection,
+      name: 'By Sagopa',
+      vertical: true,
+    },
+    ...suggestedGenresWithVideos,
+    {
       __typename: 'GenreCollection' as const,
       collection: genresForYou,
       name: 'Genres for you',
     },
-    ...suggestedGenresWithVideos,
   ]
   return content
 }

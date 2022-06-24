@@ -5276,6 +5276,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/design-system.button@workspace:packages/design-system/button":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.button@workspace:packages/design-system/button"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.flat-list@workspace:packages/design-system/flat-list":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.flat-list@workspace:packages/design-system/flat-list"
@@ -5291,6 +5297,12 @@ __metadata:
 "@xi/design-system.icon@workspace:packages/design-system/icon":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.icon@workspace:packages/design-system/icon"
+  languageName: unknown
+  linkType: soft
+
+"@xi/design-system.pill-list@workspace:packages/design-system/pill-list":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.pill-list@workspace:packages/design-system/pill-list"
   languageName: unknown
   linkType: soft
 
@@ -5321,6 +5333,12 @@ __metadata:
 "@xi/platform.utils@workspace:packages/platform/utils":
   version: 0.0.0-use.local
   resolution: "@xi/platform.utils@workspace:packages/platform/utils"
+  languageName: unknown
+  linkType: soft
+
+"@xi/search-and-discovery.search-result-modal@workspace:packages/search-and-discovery/search-result-modal":
+  version: 0.0.0-use.local
+  resolution: "@xi/search-and-discovery.search-result-modal@workspace:packages/search-and-discovery/search-result-modal"
   languageName: unknown
   linkType: soft
 
