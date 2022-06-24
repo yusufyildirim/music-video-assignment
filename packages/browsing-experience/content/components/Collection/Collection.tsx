@@ -37,6 +37,7 @@ export function Collection<T>({
         renderItem={renderItem}
         showsHorizontalScrollIndicator={false}
         numColumns={numColumns}
+        style={!horizontal && { paddingHorizontal: HORIZONTAL_SPACING }}
       />
     </View>
   )
