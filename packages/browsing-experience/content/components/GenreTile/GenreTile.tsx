@@ -3,31 +3,13 @@ import { fontSize, spacing } from '@xi/design-system.theme'
 import * as React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 
-import { Genre } from '../../types'
-
 export interface GenreTileProps {
   name: string
   image: string
+  color: string
 }
 
-// Color would come from backend in an ideal worls
-// We're just mimicing it
-const randomColors = [
-  '#B36A5E',
-  '#0B4F6C',
-  '#535657',
-  '#509DDD',
-  '#6E2365',
-  '#3B3355',
-  '#ADBBCE',
-  '#9B7E46',
-  '#AFD0BF',
-  '#394032',
-  '#808F87',
-]
-
-export const GenreTile = ({ name, image }: GenreTileProps) => {
-  const backgroundColor = randomColors[Math.floor(Math.random() * randomColors.length)]
+export const GenreTile = ({ name, image, color: backgroundColor }: GenreTileProps) => {
   return (
     <View style={[styles.container, { backgroundColor }]}>
       <Text style={styles.name} fontSize={fontSize.body1}>

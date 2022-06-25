@@ -22,7 +22,7 @@ export interface Genre {
   id: number
   name: string
   image?: string
-  videos: MusicVideo[]
+  color: string
 }
 
 export interface MusicVideo {
@@ -33,6 +33,8 @@ export interface MusicVideo {
   image: string
   viewCount: number
 }
+
+export type ContentResponse = { videos: MusicVideo[]; genres: Genre[] }
 
 export interface ContentCollectionBase<T> {
   __typename: string

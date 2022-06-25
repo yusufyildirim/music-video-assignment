@@ -5,10 +5,10 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, View } from 'react-native'
 
 import { SearchBar } from './components'
-import { useSearchScreenContentQuery } from './hooks'
+import { useSearchContentQuery } from './hooks'
 
 export function SearchScreen({ navigation }) {
-  const { isLoading, data } = useSearchScreenContentQuery()
+  const { isLoading, data } = useSearchContentQuery()
   if (isLoading) return null
 
   const onSearchBarPress = () => {

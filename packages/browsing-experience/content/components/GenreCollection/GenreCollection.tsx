@@ -11,7 +11,7 @@ export interface GenreCollectionProps {
 }
 
 const renderItem: ListRenderItem<Genre> = ({ item }) => (
-  <GenreTile image={item.image || ''} name={item.name} />
+  <GenreTile image={item.image || ''} name={item.name} color={item.color} />
 )
 
 export const GenreCollection = ({ title, collection }: GenreCollectionProps) => {

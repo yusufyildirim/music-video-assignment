@@ -1,86 +1,52 @@
+import { randomGenreColors } from '@xi/design-system.theme'
 import { get } from '@xi/platform.http'
 import _ from 'lodash'
 import { useQuery } from 'react-query'
 
-import { APIContenResult, ContentCollection, Genre, MusicVideoContentCollection } from '../types'
+import { APIContenResult, ContentResponse, Genre, MusicVideo } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
 
-/**
- *** DISCLAIMER: ***
- *
- * THIS PARTS OF THE CODE LOOKS KINDA ALL OVER THE PLACE BECAUSE I'M TRYING TO
- * RECREATE A MEANINGFUL, RICH DATA ON THE CLIENT-SIDE SINCE THE ONLY API ENDPOINT I'VE GOT
- * DOESN'T SUPPORT WHAT I'M TRYING TO ACHIEVE.
- *
- * I WAS GOING TO USE MSW (MOCK SERVICE WORKER) TO KEEP THIS LOGIC AWAY
- * BUT I THOUGHT IT'D BE OVERKILL SINCE THIS IS NOT A REAL APPLICATION.
- */
+const fetchContent = async (): Promise<ContentResponse> => {
+  const data = await get<APIContenResult>('/data/dataset.json')
 
-/***
- * Fetchs content data from the service and maps that the data shape we need.
- */
-const fetchContent = async (): Promise<ContentCollection[]> => {
-  const data: APIContenResult = await get('/data/dataset.json')
+  const videos = data.videos.map<MusicVideo>(video => ({
+    id: video.id,
+    artist: video.artist,
+    genreId: video.genre_id,
+    image: video.image_url,
+    title: video.title,
+    viewCount: Math.floor(Math.random() * 1_000_000),
+  }))
 
-  // Map videos data
-  const videosByGenre = _.chain(data.videos)
-    .map(video => ({
-      id: video.id,
-      artist: video.artist,
-      genreId: video.genre_id,
-      image: video.image_url,
-      title: video.title,
-      viewCount: Math.floor(Math.random() * 1_000_000),
-    }))
-    .groupBy('genreId')
-    .value()
+  const videosByGenre = _.groupBy(videos, 'genreId')
 
-  const suggestedGenresWithVideos: MusicVideoContentCollection[] = _.chain(data.genres)
-    // Pick and map 10 random music video related to every genre
-    .map(genre => ({ ...genre, videos: _.sampleSize(videosByGenre[genre.id], 10) }))
-    // Filter out genres that has less than 3 music videos to make sure it'll
-    // have enough material to show on the ui when displayed.
-    .filter(genre => genre.videos.length > 3)
-    // Pick 10 random genres
-    .sampleSize(10)
-    .map(g => ({
-      __typename: 'MusicVideoCollection' as const,
-      collection: g.videos,
-      name: g.name,
-    }))
-    .value()
+  const genres = data.genres.map<Genre>(genre => ({
+    id: genre.id,
+    name: genre.name,
+    image: _.sample(videosByGenre[genre.id])?.image,
+    // Pick a random color for the genre background
+    color: randomGenreColors[Math.floor(Math.random() * randomGenreColors.length)],
+  }))
 
-  const genresForYou = _.chain(data.genres)
-    .sampleSize(5)
-    .map<Genre>(genre => ({
-      ...genre,
-      videos: [],
-      // Pick a random video belong to the genre and use its image as the genre cover
-      image: _.sample(videosByGenre[genre.id])?.image,
-    }))
-    .value()
-
-  const content = [
-    {
-      __typename: 'MusicVideoCollection' as const,
-      collection: suggestedGenresWithVideos[0].collection,
-      name: 'By Sagopa',
-      vertical: true,
-    },
-    ...suggestedGenresWithVideos,
-    {
-      __typename: 'GenreCollection' as const,
-      collection: genresForYou,
-      name: 'Genres for you',
-    },
-  ]
-  return content
+  return { videos, genres }
 }
 
 /**
- * Returns the content service response
+ * Fetches and caches the content service response.
+ *
+ * Allows you to transform the response by providing a `select` function.
+ *
+ * @param select - (data: APIContenResult) => T
+ * @returns The return value of `select` function.
  */
-export function useContentQuery() {
-  return useQuery(CONTENT_QUERY_KEY, fetchContent)
+export function useContentQuery<S>(select: (data: ContentResponse) => S) {
+  return useQuery(CONTENT_QUERY_KEY, fetchContent, {
+    select,
+    cacheTime: 1000 * 60 * 60,
+
+    // Since we know our data is pretty much a static JSON, we can cache it indefinitely
+    // for demoing purposes.
+    staleTime: Infinity,
+  })
 }
