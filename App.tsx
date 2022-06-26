@@ -14,10 +14,9 @@ import * as React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { HomeStackParamList, SearchStackParamList, TabParamList } from './NavTypes'
-
 // Enable this to use Storybook in native app
-// export { default } from './.storybook/.ondevice/Storybook'
+// import Storybook from './.storybook/.ondevice/Storybook'
+import { HomeStackParamList, SearchStackParamList, TabParamList } from './NavTypes'
 
 const Tab = createBottomTabNavigator<TabParamList>()
 
@@ -57,6 +56,9 @@ const queryClient = new QueryClient({
 export default function App() {
   const fontsLoaded = useLoadFonts()
   if (!fontsLoaded) return null
+
+  // Enable this to use Storybook in native app
+  // return <Storybook />
 
   return (
     <QueryClientProvider client={queryClient}>

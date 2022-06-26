@@ -30,7 +30,19 @@ try {
 } catch {}
 
 const getStories = () => {
-  return [require("../../packages/design-system/text/Text.stories.tsx")];
+  return [
+    require("../../packages/browsing-experience/content/variants/GenreCollection/GenreCollection.stories.tsx"),
+    require("../../packages/browsing-experience/content/variants/GenreTile/GenreTile.stories.tsx"),
+    require("../../packages/browsing-experience/content/variants/MusicVideoCollection/MusicVideoCollection.stories.tsx"),
+    require("../../packages/browsing-experience/content/variants/MusicVideoItem/MusicVideoItem.stories.tsx"),
+    require("../../packages/browsing-experience/content/variants/MusicVideoTile/MusicVideoTile.stories.tsx"),
+    require("../../packages/browsing-experience/content/variants/VerticalMusicVideoCollection/VerticalMusicVideoCollection.stories.tsx"),
+    require("../../packages/design-system/icon/Icon.stories.tsx"),
+    require("../../packages/design-system/image/Image.stories.tsx"),
+    require("../../packages/design-system/pill-list/PillList.stories.tsx"),
+    require("../../packages/design-system/text/Text.stories.tsx"),
+    require("../../packages/search-and-discovery/search-screen/components/SearchBar/SearchBar.stories.tsx"),
+  ];
 };
 
 configure(getStories, module, false);

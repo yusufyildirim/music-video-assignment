@@ -1,12 +1,19 @@
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds'
+import { color } from '@xi/design-system.theme'
 
 export const decorators = [withBackgrounds]
 
 export const parameters = {
   backgrounds: [
-    { name: 'plain', value: 'white', default: true },
-    { name: 'warm', value: 'hotpink' },
-    { name: 'cool', value: 'deepskyblue' },
+    {
+      name: 'dark',
+      value: color.semantic.background.default.dark,
+      default: true,
+    },
+    {
+      name: 'light',
+      value: color.semantic.background.default.light,
+    },
   ],
   controls: {
     matchers: {
