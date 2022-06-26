@@ -1,6 +1,6 @@
 import { Genre } from '@xi/browsing-experience.content'
 import { PillList } from '@xi/design-system.pill-list'
-import { View } from 'react-native'
+import Animated, { FadeInLeft } from 'react-native-reanimated'
 
 import { useSearchFilters } from '../context'
 import { useSearchFilterCategories } from '../hooks'
@@ -22,7 +22,7 @@ export function SearchResultCategoryFilters() {
   const { decades, genres } = categories
 
   return (
-    <View>
+    <Animated.View entering={FadeInLeft.delay(100)}>
       <PillList
         selectionMode="multi"
         onSelectedItemsChanged={onSelectedGenresChange}
@@ -33,6 +33,6 @@ export function SearchResultCategoryFilters() {
         data={decades}
         onSelectedItemsChanged={onSelectedDecadeChange}
       />
-    </View>
+    </Animated.View>
   )
 }

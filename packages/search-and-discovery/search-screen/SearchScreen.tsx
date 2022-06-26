@@ -1,48 +1,21 @@
 import { ContentPainter } from '@xi/browsing-experience.content'
-import { Text } from '@xi/design-system.text'
-import { fontSize, spacing } from '@xi/design-system.theme'
 import React from 'react'
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { SearchBar } from './components'
+import { SearchScreenHeader } from './components'
 import { useSearchContentQuery } from './hooks'
 
-export function SearchScreen({ navigation }) {
+export function SearchScreen() {
   const { isLoading, data } = useSearchContentQuery()
   if (isLoading) return null
 
-  const onSearchBarPress = () => {
-    navigation.navigate('SearchResultModal')
-  }
-
   return (
-    <SafeAreaView>
+    <SafeAreaView mode="padding">
       <ContentPainter
-        ListHeaderComponent={
-          <>
-            <Text fontSize={fontSize.title2} style={styles.title}>
-              Search
-            </Text>
-            <View style={styles.searchBar}>
-              <SearchBar onPress={onSearchBarPress} />
-            </View>
-          </>
-        }
+        ListHeaderComponent={<SearchScreenHeader />}
         stickyHeaderIndices={[0]}
         collections={data || []}
       />
     </SafeAreaView>
   )
 }
-
-const styles = StyleSheet.create({
-  searchBar: {
-    paddingHorizontal: spacing.s16,
-    paddingVertical: spacing.s12,
-    backgroundColor: 'black',
-  },
-  title: {
-    backgroundColor: 'black',
-    paddingHorizontal: spacing.s16,
-  },
-})

@@ -24,7 +24,6 @@ export function SearchArea() {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.innerContainer}>
-        <FilterButton />
         <SearchInput onChangeText={onSearchTextChange} />
         <Button style={styles.cancelBtn} onPress={onCancelPress}>
           <Text>Cancel</Text>
@@ -47,6 +46,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'row',
     paddingVertical: spacing.s12,
+    paddingLeft: spacing.s16,
     alignItems: 'center',
   },
 })
