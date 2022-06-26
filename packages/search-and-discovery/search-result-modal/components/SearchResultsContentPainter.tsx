@@ -10,5 +10,5 @@ export function SearchResultsContentPainter() {
 
   if (isLoading) return null
 
-  return <ContentPainter collections={data || []} />
+  return <ContentPainter collections={data || []} keyboardDismissMode="on-drag" />
 }

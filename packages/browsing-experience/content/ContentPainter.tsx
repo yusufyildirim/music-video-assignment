@@ -1,5 +1,6 @@
 import { FlatList } from '@xi/design-system.flat-list'
-import { FlatListProps, ListRenderItem } from 'react-native'
+import { spacing } from '@xi/design-system.theme'
+import { FlatListProps, ListRenderItem, StyleSheet } from 'react-native'
 
 import { ContentCollection } from './types'
 import { GenreCollection, MusicVideoCollection, VerticalMusicVideoCollection } from './variants'
@@ -31,6 +32,18 @@ interface ContentPainterProps
 
 export const ContentPainter = ({ collections, ...props }: ContentPainterProps) => {
   return (
-    <FlatList {...props} renderItem={renderItem} data={collections} keyExtractor={keyExtractor} />
+    <FlatList
+      contentContainerStyle={styles.contentContainer}
+      {...props}
+      renderItem={renderItem}
+      data={collections}
+      keyExtractor={keyExtractor}
+    />
   )
 }
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    paddingBottom: spacing.s16,
+  },
+})
