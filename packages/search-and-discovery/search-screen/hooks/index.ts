@@ -1,1 +1,1 @@
-export { useSearchScreenContentQuery } from './useSearchScreenContentQuery'
+export { useSearchContentQuery } from './useSearchContentQuery'

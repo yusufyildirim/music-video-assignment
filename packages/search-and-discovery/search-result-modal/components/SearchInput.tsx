@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
   input: {
     fontFamily: font.medium,
     paddingHorizontal: spacing.s8,
+    flex: 1,
   },
 })

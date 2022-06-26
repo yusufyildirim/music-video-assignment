@@ -84,3 +84,5 @@ dist/
 storybook-static/
 
 # @end expo-cli
+
+coverage

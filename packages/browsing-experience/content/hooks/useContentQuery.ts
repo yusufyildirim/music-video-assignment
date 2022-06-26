@@ -7,6 +7,10 @@ import { APIContenResult, ContentResponse, Genre, MusicVideo } from '../types'
 
 const CONTENT_QUERY_KEY = 'content'
 
+function getDecade(year: number) {
+  return Math.floor(year / 10) * 10
+}
+
 const fetchContent = async (): Promise<ContentResponse> => {
   const data = await get<APIContenResult>('/data/dataset.json')
 
@@ -17,6 +21,9 @@ const fetchContent = async (): Promise<ContentResponse> => {
     image: video.image_url,
     title: video.title,
     viewCount: Math.floor(Math.random() * 1_000_000),
+    // We're not interested in the exact release year
+    // but, we calculate the decade upfront to make filtering easier later on.
+    decade: getDecade(video.release_year),
   }))
 
   const videosByGenre = _.groupBy(videos, 'genreId')

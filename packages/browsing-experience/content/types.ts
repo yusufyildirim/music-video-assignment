@@ -32,6 +32,7 @@ export interface MusicVideo {
   genreId: number
   image: string
   viewCount: number
+  decade: number
 }
 
 export type ContentResponse = { videos: MusicVideo[]; genres: Genre[] }

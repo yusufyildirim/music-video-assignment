@@ -1,56 +1,38 @@
 import { useNavigation } from '@react-navigation/native'
+import { Genre } from '@xi/browsing-experience.content'
 import { Button } from '@xi/design-system.button'
+import { PillList } from '@xi/design-system.pill-list'
 import { Text } from '@xi/design-system.text'
-import { Icon } from '@xi/design-system.icon'
-import { color, spacing, useColor } from '@xi/design-system.theme'
-import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native'
+import { color, spacing } from '@xi/design-system.theme'
+import { StyleSheet, View } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
+import { useSearchFilters } from '../context'
+import { useSearchFilterCategories } from '../hooks'
 import { FilterButton } from './FilterButton'
 import { SearchInput } from './SearchInput'
-import { PillList } from '@xi/design-system.pill-list'
+import { SearchResultCategoryFilters } from './SearchResultCategoryFilters'
 
 export function SearchArea() {
+  const { filters, setFilters } = useSearchFilters()
   const navigation = useNavigation()
+  const insets = useSafeAreaInsets()
 
   const onCancelPress = () => navigation.goBack()
+  const onSearchTextChange = (text: string) => setFilters({ ...filters, text })
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.innerContainer}>
         <FilterButton />
-        <SearchInput />
+        <SearchInput onChangeText={onSearchTextChange} />
         <Button style={styles.cancelBtn} onPress={onCancelPress}>
           <Text>Cancel</Text>
         </Button>
       </View>
 
-      {/* <View>
-        <PillList
-          selectionMode="single"
-          onSelectedItemsChanged={items => console.log('Selected Items:', items)}
-          data={[
-            { id: 1, name: 'Top' },
-            { id: 2, name: 'Artists' },
-            { id: 3, name: 'Playlists' },
-            { id: 4, name: 'Podcasts & Shows' },
-            { id: 5, name: 'Songs' },
-            { id: 6, name: 'Albums' },
-          ]}
-        />
-        <PillList
-          selectionMode="multi"
-          data={[
-            { id: 1, name: '2020s' },
-            { id: 2, name: '2010s' },
-            { id: 3, name: '2000s' },
-            { id: 4, name: '90s' },
-            { id: 6, name: '80s' },
-            { id: 7, name: '70s' },
-            { id: 8, name: '60s' },
-          ]}
-        />
-      </View> */}
-    </SafeAreaView>
+      <SearchResultCategoryFilters />
+    </View>
   )
 }
 

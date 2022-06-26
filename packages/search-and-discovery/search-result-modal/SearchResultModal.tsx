@@ -1,11 +1,16 @@
-import { SafeAreaView, View } from 'react-native'
-import { Text } from '@xi/design-system.text'
-import { SearchArea, SearchInput } from './components'
+import React from 'react'
+import { View } from 'react-native'
+
+import { SearchArea, SearchResultsContentPainter } from './components'
+import { SearchFiltersProvider } from './context'
 
 export function SearchResultModal() {
   return (
-    <View>
-      <SearchArea />
-    </View>
+    <SearchFiltersProvider>
+      <View>
+        <SearchArea />
+        <SearchResultsContentPainter />
+      </View>
+    </SearchFiltersProvider>
   )
 }
