@@ -57,7 +57,6 @@ describe('FlatList', () => {
 
       // Testing the implementation, not ideal but the easiest way I can think of right now
       expect(getByTestId(TEST_ID)).toHaveProp('contentInset', { top: INSET, bottom: INSET })
-      expect(getByTestId(TEST_ID)).toHaveProp('contentOffset', { y: -INSET, x: 0 })
     })
 
     it("shouldn't apply `inset` to the list", () => {
