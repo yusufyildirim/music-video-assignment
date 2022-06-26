@@ -12,7 +12,7 @@ export function NoSearchResult() {
       <Text fontSize={fontSize.body1} style={styles.text}>
         Couldn't find any result
       </Text>
-      {filters.text && <Text style={styles.text}>for"{filters.text}"</Text>}
+      {filters.text && <Text style={styles.text}>for "{filters.text}"</Text>}
       <Text style={styles.text} color="suppressed">
         Try searching again with different keyword and/or filter combination
       </Text>
