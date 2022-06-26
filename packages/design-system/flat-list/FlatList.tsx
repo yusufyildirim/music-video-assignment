@@ -6,6 +6,8 @@ import type { FlatListProps as RNFlatListProps } from 'react-native'
 import { flatListTestIDs } from './testIDs'
 export type { ListRenderItem } from 'react-native'
 
+const DEFAULT_WINDOW_SIZE = 11
+
 export interface FlatListProps<T> extends Omit<RNFlatListProps<T>, 'renderItem'> {
   /***
    * Acts like the combination of `contentInset` and `contentOffset`.
@@ -79,6 +81,7 @@ export function FlatList<T>({ itemSpacing = 0, inset, ...props }: FlatListProps<
       contentInset={contentInset}
       contentOffset={contentOffset}
       ItemSeparatorComponent={itemSpacing > 0 ? ItemSeparatorComponent : undefined}
+      windowSize={DEFAULT_WINDOW_SIZE}
       // All the props above are overridable
       // Override them by passing `props` only if you know what you're doing
       {...props}
