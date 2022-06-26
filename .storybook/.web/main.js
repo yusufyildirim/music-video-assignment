@@ -6,5 +6,5 @@ module.exports = {
     '@storybook/addon-react-native-web',
   ],
   framework: '@storybook/react',
-  staticDirs: [{ from: '../../packages/design-system/font/assets', to: '/static/fonts' }],
+  staticDirs: [{ from: '../../packages/design-system/font/assets', to: 'static/fonts' }],
 }
