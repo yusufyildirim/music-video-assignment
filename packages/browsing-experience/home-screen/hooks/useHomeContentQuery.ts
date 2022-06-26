@@ -1,10 +1,5 @@
 import { useContentQuery } from '@xi/browsing-experience.content'
-import type {
-  APIContenResult,
-  ContentCollection,
-  Genre,
-  MusicVideoContentCollection,
-} from '@xi/browsing-experience.content'
+import type { MusicVideoContentCollection } from '@xi/browsing-experience.content'
 import { ContentResponse, GenreContentCollection } from '@xi/browsing-experience.content/types'
 import _ from 'lodash'
 

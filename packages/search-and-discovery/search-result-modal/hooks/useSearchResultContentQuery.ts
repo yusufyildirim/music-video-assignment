@@ -4,7 +4,6 @@ import {
   ContentResponse,
 } from '@xi/browsing-experience.content'
 import Fuse from 'fuse.js'
-import _ from 'lodash'
 import * as React from 'react'
 
 import { SearchFilters } from '../context/SearchFiltersProvider'

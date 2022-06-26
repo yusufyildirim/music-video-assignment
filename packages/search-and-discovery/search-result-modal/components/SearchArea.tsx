@@ -1,15 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
-import { Genre } from '@xi/browsing-experience.content'
 import { Button } from '@xi/design-system.button'
-import { PillList } from '@xi/design-system.pill-list'
 import { Text } from '@xi/design-system.text'
 import { color, spacing } from '@xi/design-system.theme'
 import { StyleSheet, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { useSearchFilters } from '../context'
-import { useSearchFilterCategories } from '../hooks'
-import { FilterButton } from './FilterButton'
 import { SearchInput } from './SearchInput'
 import { SearchResultCategoryFilters } from './SearchResultCategoryFilters'
 

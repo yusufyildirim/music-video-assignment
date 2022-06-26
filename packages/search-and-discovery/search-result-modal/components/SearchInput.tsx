@@ -1,5 +1,4 @@
 import { Icon } from '@xi/design-system.icon'
-import { Text } from '@xi/design-system.text'
 import { color, font, spacing, useColor } from '@xi/design-system.theme'
 import { StyleSheet, TextInput, View } from 'react-native'
 

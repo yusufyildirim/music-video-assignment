@@ -15,7 +15,7 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "test": "jest",
-    "lint": "eslint .",
+    "lint": "eslint ./packages",
     "fix": "eslint --fix .",
     "storybook:update-stories": "sb-rn-get-stories --config-path ./.storybook/.ondevice",
     "prestart": "yarn storybook:update-stories",
