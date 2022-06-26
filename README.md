@@ -31,7 +31,7 @@ yarn storybook
 Responsible of building all the widely used components such as `Button`, `Text`, `Image` etc. Also responsible of UI-best practices and standarts such as `theme` support.
 
 ### Platform (@xi/platform.*)
-Provides vital packages and utilities of the app like `http`, `cache manager`, `performance tracking`, `storage`, `i18n` etc. We only have `http` package for our project at the moment, though.
+Provides vital packages and utilities of the app like `http`, `cache manager`, `performance tracking`, `storage`, `i18n` etc. We only have `http` and `error-handling` packages for our project at the moment, though.
 
 ### Browsing Experience (@xi/browsing-experience.*)
 Responsible of the user's browsing journey ans showing personalized content. A music video app is full of contents. It must provide a rich, dynamic experience. To do that, we leverage [Server-driven UI](https://www.judo.app/blog/server-driven-ui/) technique that allows us to show completely dynamic content to the user based on the server response. So, every user sees a different content.

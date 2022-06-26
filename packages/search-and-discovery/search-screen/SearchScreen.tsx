@@ -7,11 +7,11 @@ import { useSearchContentQuery } from './hooks'
 
 export function SearchScreen() {
   const { isLoading, data } = useSearchContentQuery()
-  if (isLoading) return null
 
   return (
     <SafeAreaView mode="padding">
       <ContentPainter
+        loading={isLoading}
         ListHeaderComponent={<SearchScreenHeader />}
         stickyHeaderIndices={[0]}
         collections={data || []}

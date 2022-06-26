@@ -5306,6 +5306,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/design-system.loading@workspace:packages/design-system/loading":
+  version: 0.0.0-use.local
+  resolution: "@xi/design-system.loading@workspace:packages/design-system/loading"
+  languageName: unknown
+  linkType: soft
+
 "@xi/design-system.pill-list@workspace:packages/design-system/pill-list":
   version: 0.0.0-use.local
   resolution: "@xi/design-system.pill-list@workspace:packages/design-system/pill-list"

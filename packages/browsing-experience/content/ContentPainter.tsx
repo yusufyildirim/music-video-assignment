@@ -1,4 +1,5 @@
 import { FlatList } from '@xi/design-system.flat-list'
+import { Loading } from '@xi/design-system.loading'
 import { spacing } from '@xi/design-system.theme'
 import { FlatListProps, ListRenderItem, StyleSheet } from 'react-native'
 
@@ -28,13 +29,16 @@ const keyExtractor = (item: ContentCollection, index: number) => {
 interface ContentPainterProps
   extends Omit<FlatListProps<ContentCollection>, 'renderItem' | 'data' | 'keyExtractor'> {
   collections: ContentCollection[]
+  loading?: boolean
 }
 
 /**
  * A component that takes `ContentCollection[]` as an input and
  * produces corresponding UI elements (variants) as the output
  */
-export const ContentPainter = ({ collections, ...props }: ContentPainterProps) => {
+export const ContentPainter = ({ collections, loading, ...props }: ContentPainterProps) => {
+  if (loading) return <Loading />
+
   return (
     <FlatList
       contentContainerStyle={styles.contentContainer}

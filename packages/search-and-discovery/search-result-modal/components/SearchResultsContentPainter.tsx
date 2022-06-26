@@ -10,10 +10,10 @@ export function SearchResultsContentPainter() {
 
   const { isLoading, data } = useSearchResultContentQuery(filters)
 
-  if (isLoading) return null
-
   // Means that there's no match
   if (data?.length === 0) return <NoSearchResult />
 
-  return <ContentPainter collections={data || []} keyboardDismissMode="on-drag" />
+  return (
+    <ContentPainter loading={isLoading} collections={data || []} keyboardDismissMode="on-drag" />
+  )
 }
