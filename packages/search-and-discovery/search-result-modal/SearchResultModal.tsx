@@ -1,3 +1,4 @@
+import { ErrorBoundary } from '@xi/platform.error-handling'
 import React from 'react'
 
 import { SearchArea, SearchResultsContentPainter } from './components'
@@ -10,7 +11,9 @@ export function SearchResultModal() {
   return (
     <SearchFiltersProvider>
       <SearchArea />
-      <SearchResultsContentPainter />
+      <ErrorBoundary>
+        <SearchResultsContentPainter />
+      </ErrorBoundary>
     </SearchFiltersProvider>
   )
 }

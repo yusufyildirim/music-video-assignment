@@ -42,6 +42,9 @@ Responsible of the user's browsing journey ans showing personalized content. A m
 ## Content Painter
 `ContentPainter` is a component that takes `ContentCollection[]` as an input. It analyzes the input to indentify which `variants` should be rendered so it can render them, all at the runtime, dynamically. `Variants` are simply React components that are used by the `ContentPainter`. **Whole browsing, searching and discovery experience is rendered by this component**. It can get pretty complex in a real-world application but our implementation is really simple.
 
+## App.tsx
+It contains navigators, stacks, and all sorts of stuff. I'd move most of them to their own packages normally but didn't wanna add more and more packages just to make you (the reviewer) jump around a little less. So, it's a bit messy yes, but it's intended.
+
 ## Testing Story
 Having a good amount of test coverage is not an objective for this project. But, it has some amount of `unit` and `component` testing suits. Adding `Detox` for `E2E` testing was planned but it doesn't have `RN 0.68` support yet. 
 

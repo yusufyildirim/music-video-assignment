@@ -5324,9 +5324,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@xi/platform.error-handling@workspace:packages/platform/error-handling":
+  version: 0.0.0-use.local
+  resolution: "@xi/platform.error-handling@workspace:packages/platform/error-handling"
+  languageName: unknown
+  linkType: soft
+
 "@xi/platform.http@workspace:packages/platform/http":
   version: 0.0.0-use.local
   resolution: "@xi/platform.http@workspace:packages/platform/http"
+  languageName: unknown
+  linkType: soft
+
+"@xi/platform.screen@workspace:packages/platform/screen":
+  version: 0.0.0-use.local
+  resolution: "@xi/platform.screen@workspace:packages/platform/screen"
   languageName: unknown
   linkType: soft
 
@@ -14736,6 +14748,7 @@ __metadata:
     prettier: ^2.7.1
     react: 17.0.2
     react-dom: 17.0.2
+    react-error-boundary: ^3.1.4
     react-native: 0.68.2
     react-native-fast-image: ^8.5.11
     react-native-reanimated: ^2.8.0
@@ -16694,6 +16707,17 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1
   checksum: 42bcd4423f12e9ee21b2d3f0c2a28805ff4953bd82b6be4c1f5b5f9a371115aafa36a6f3d82726d43b4912179b79e99550c2b9a772c7fe6a5cd8f7e93ff34ceb
+  languageName: node
+  linkType: hard
+
+"react-error-boundary@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "react-error-boundary@npm:3.1.4"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+  peerDependencies:
+    react: ">=16.13.1"
+  checksum: f36270a5d775a25c8920f854c0d91649ceea417b15b5bc51e270a959b0476647bb79abb4da3be7dd9a4597b029214e8fe43ea914a7f16fa7543c91f784977f1b
   languageName: node
   linkType: hard
 
