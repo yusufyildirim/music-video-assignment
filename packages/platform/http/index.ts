@@ -1,1 +1,1 @@
-export { get } from './http'
+export { BASE_URL, get } from './http'

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/main/'
+export const BASE_URL = 'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/main/'
 
 /***
  * Sends a `GET` request to the provided `route`.
