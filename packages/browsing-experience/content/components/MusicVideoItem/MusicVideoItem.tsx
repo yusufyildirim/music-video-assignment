@@ -1,7 +1,8 @@
+import { Image } from '@xi/design-system.image'
 import { Text } from '@xi/design-system.text'
 import { spacing } from '@xi/design-system.theme'
 import * as React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 import { MusicVideo } from '../../types'
 
@@ -12,14 +13,7 @@ export interface MusicVideoItemProps extends Omit<MusicVideo, 'viewCount'> {}
 export const MusicVideoItem = ({ artist, image, title }: MusicVideoItemProps) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: image,
-          width: IMAGE_WIDTH,
-        }}
-        style={styles.cover}
-        resizeMode="cover"
-      />
+      <Image uri={image} style={styles.cover} resizeMode="cover" />
       <View style={styles.infoContainer}>
         <Text style={styles.song} numberOfLines={1}>
           {title}

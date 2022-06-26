@@ -1,7 +1,8 @@
+import { Image } from '@xi/design-system.image'
 import { Text } from '@xi/design-system.text'
 import { fontSize, spacing } from '@xi/design-system.theme'
 import * as React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 export interface GenreTileProps {
   name: string
@@ -15,14 +16,7 @@ export const GenreTile = ({ name, image, color: backgroundColor }: GenreTileProp
       <Text style={styles.name} fontSize={fontSize.body1}>
         {name}
       </Text>
-      <Image
-        source={{
-          uri: image,
-          width: 50,
-        }}
-        style={styles.cover}
-        resizeMode="cover"
-      />
+      <Image uri={image} style={styles.cover} resizeMode="cover" />
     </View>
   )
 }

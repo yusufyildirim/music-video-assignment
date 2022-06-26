@@ -1,7 +1,8 @@
+import { Image } from '@xi/design-system.image'
 import { Text } from '@xi/design-system.text'
 import { fontSize, spacing } from '@xi/design-system.theme'
 import * as React from 'react'
-import { View, Image, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 import { MusicVideo } from '../../types'
 
@@ -14,14 +15,7 @@ export const MusicVideoTile = ({ artist, image, title, viewCount }: MusicVideoTi
 
   return (
     <View style={styles.container}>
-      <Image
-        source={{
-          uri: image,
-          width: WIDTH,
-        }}
-        style={styles.cover}
-        resizeMode="cover"
-      />
+      <Image uri={image} style={styles.cover} resizeMode="cover" />
       <Text style={styles.song} numberOfLines={1}>
         {title}
       </Text>
