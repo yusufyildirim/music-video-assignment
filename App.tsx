@@ -14,33 +14,36 @@ import * as React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import { HomeStackParamList, SearchStackParamList, TabParamList } from './NavTypes'
+
 // Enable this to use Storybook in native app
 // export { default } from './.storybook/.ondevice/Storybook'
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator<TabParamList>()
 
-const Stack = createNativeStackNavigator()
+const HomeStackNav = createNativeStackNavigator<HomeStackParamList>()
+const SearchStackNav = createNativeStackNavigator<SearchStackParamList>()
 
 const Home = ScreenHOC(HomeScreen)
 
 const HomeStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="HomeScreen" component={Home} options={{ headerShown: false }} />
-  </Stack.Navigator>
+  <HomeStackNav.Navigator>
+    <HomeStackNav.Screen name="Home" component={Home} options={{ headerShown: false }} />
+  </HomeStackNav.Navigator>
 )
 
 const Search = ScreenHOC(SearchScreen)
 const SearchResult = ScreenHOC(SearchResultModal)
 
 const SearchStack = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="SearchScreen" component={Search} options={{ headerShown: false }} />
-    <Stack.Screen
-      name="SearchResultModal"
+  <SearchStackNav.Navigator>
+    <SearchStackNav.Screen name="Search" component={Search} options={{ headerShown: false }} />
+    <SearchStackNav.Screen
+      name="SearchResult"
       component={SearchResult}
       options={{ headerShown: false, presentation: 'containedModal', animation: 'fade' }}
     />
-  </Stack.Navigator>
+  </SearchStackNav.Navigator>
 )
 
 const queryClient = new QueryClient({
@@ -75,20 +78,22 @@ export default function App() {
                 tabBarInactiveTintColor: color.semantic.text.suppressed.dark,
               }}>
               <Tab.Screen
-                name="Home"
+                name="HomeTab"
                 component={HomeStack}
                 options={{
                   headerShown: false,
+                  tabBarLabel: 'Home',
                   tabBarIcon: ({ focused }) => (
                     <Icon name="home" size={24} color={focused ? 'default' : 'pale'} />
                   ),
                 }}
               />
               <Tab.Screen
-                name="Search"
+                name="SearchTab"
                 component={SearchStack}
                 options={{
                   headerShown: false,
+                  tabBarLabel: 'Search',
                   tabBarIcon: ({ focused }) => (
                     <Icon name="search" size={24} color={focused ? 'default' : 'pale'} />
                   ),

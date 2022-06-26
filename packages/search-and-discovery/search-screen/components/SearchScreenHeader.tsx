@@ -4,14 +4,15 @@ import { fontSize, spacing, useColor } from '@xi/design-system.theme'
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 
+import { SearchScreenNavigationProp } from '../../../../NavTypes'
 import { SearchBar } from './SearchBar/SearchBar'
 
 export function SearchScreenHeader() {
-  const navigation = useNavigation()
+  const navigation = useNavigation<SearchScreenNavigationProp['navigation']>()
   const colors = useColor()
 
   const onSearchBarPress = () => {
-    navigation.navigate('SearchResultModal')
+    navigation.navigate('SearchResult')
   }
 
   return (
