@@ -13,6 +13,7 @@ const collection: MusicVideo[] = [
     image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/503037/images/app/w522_h292.jpg',
     genreId: 123,
+    decade: 2010,
     id: 1,
   },
   {
@@ -22,6 +23,7 @@ const collection: MusicVideo[] = [
     image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/503130/images/app/w522_h292.jpg',
     genreId: 123,
+    decade: 1990,
     id: 2,
   },
   {
@@ -31,6 +33,7 @@ const collection: MusicVideo[] = [
     image:
       'https://raw.githubusercontent.com/XiteTV/frontend-coding-exercise/679a82b1e7110c16e14412f1debaa118c10078a9/images/504752/images/app/w522_h292.jpg',
     genreId: 123,
+    decade: 2000,
     id: 3,
   },
 ]
