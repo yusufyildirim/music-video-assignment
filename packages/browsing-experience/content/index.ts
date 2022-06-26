@@ -1,4 +1,3 @@
-export {} from './components'
 export { useContentQuery } from './hooks'
 
 export type {
