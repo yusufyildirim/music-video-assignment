@@ -1,4 +1,8 @@
 # Music Video App Assignment
+Welcome to the Music Video App Assignment project!
+| Home | Search | Search Result |
+|-----|------------|---------|
+| ![2022-06-26 21 47 29](https://user-images.githubusercontent.com/22980987/175835671-74dffde9-ff27-45e7-ab19-35972da8fedd.gif) | ![2022-06-26 21 48 01](https://user-images.githubusercontent.com/22980987/175835697-3258f375-eb8e-4362-b249-8fa8dfe53bcd.gif) | ![2022-06-26 21 48 16](https://user-images.githubusercontent.com/22980987/175835703-57f8303e-7d22-4cec-942b-5d9b442c428f.gif)|
 
 ## Getting Started
 This project uses [Expo Dev Client](https://docs.expo.dev/development/introduction/). The project is configured specifically for `iOS`. It can technically work fine for `Android` as well with minor UI adjustments but did not spend time on it. We have `Storybook` setup and most of our core components have story files.
