@@ -30,6 +30,10 @@ interface ContentPainterProps
   collections: ContentCollection[]
 }
 
+/**
+ * A component that takes `ContentCollection[]` as an input and
+ * produces corresponding UI elements (variants) as the output
+ */
 export const ContentPainter = ({ collections, ...props }: ContentPainterProps) => {
   return (
     <FlatList

@@ -46,6 +46,12 @@ const transformData = ({ genres, videos }: ContentResponse) => {
   return _.shuffle([...musicVideoCollectionsByGenre, genreCollection])
 }
 
+/**
+ * Uses `useContentQuery` as a base and transforms that bulk data
+ * by using the `select` option of `ReactQuery`.
+ * Generates 10 music video collections by genres and
+ * a single `Genres For You` collection to some on the `HomePage`
+ */
 export function useHomeContentQuery() {
   return useContentQuery(transformData)
 }

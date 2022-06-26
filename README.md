@@ -25,7 +25,7 @@ yarn storybook
 # Important Pieces
 
 ## How to navigate inside the project?
-[Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) is being used on the project. It helps us to create a structure in which we can draw strict lines for every package in terms of responsibility, so, every team can control it's own territory. Our imaginary music video app consists of five different core packages --potentially five different teams as well-- :
+[Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) is being used on the project. It helps us to create a structure in which we can draw strict lines for every package in terms of responsibility, so, every team can control it's own territory. It's especially important when a lot of people start working on the same codebase. Our imaginary music video app consists of five different core packages --potentially five different teams as well-- :
 
 ### Design System (@xi/design-system.*)
 Responsible of building all the widely used components such as `Button`, `Text`, `Image` etc. Also responsible of UI-best practices and standarts such as `theme` support.
@@ -34,13 +34,13 @@ Responsible of building all the widely used components such as `Button`, `Text`,
 Provides vital packages and utilities of the app like `http`, `cache manager`, `performance tracking`, `storage`, `i18n` etc. We only have `http` package for our project at the moment, though.
 
 ### Browsing Experience (@xi/browsing-experience.*)
-Responsible of the user's browsing journey ans showing personalized content. To do that, we leverage [Server-driven UI](https://www.judo.app/blog/server-driven-ui/) technique that allows us to show completely dynamic content to the user based on the server response.
+Responsible of the user's browsing journey ans showing personalized content. A music video app is full of contents. It must provide a rich, dynamic experience. To do that, we leverage [Server-driven UI](https://www.judo.app/blog/server-driven-ui/) technique that allows us to show completely dynamic content to the user based on the server response. So, every user sees a different content.
 
 ### Search and Discovery (@xi/search-and-discovery.*)
 **Search** part is helping user to find the exact music videos they're looking for. **Discovery** part is missing in our demo app but, would be crucial for a real-world app.
 
 ## Content Painter
-`ContentPainter` is a component that takes `ContentCollection[]` as an input. IT analyzes the input to indentify which `variants` should be rendered so it can render them, all at the runtime, dynamically. `Variants` are simply React components that are used by the `ContentPainter`. **Whole browsing, searching and discovery experience is rendered by this component**. It can get pretty complex in a real-world application but our implementation is really simple.
+`ContentPainter` is a component that takes `ContentCollection[]` as an input. It analyzes the input to indentify which `variants` should be rendered so it can render them, all at the runtime, dynamically. `Variants` are simply React components that are used by the `ContentPainter`. **Whole browsing, searching and discovery experience is rendered by this component**. It can get pretty complex in a real-world application but our implementation is really simple.
 
 ## Testing Story
 Having a good amount of test coverage is not an objective for this project. But, it has some amount of `unit` and `component` testing suits. Adding `Detox` for `E2E` testing was planned but it doesn't have `RN 0.68` support yet. 
