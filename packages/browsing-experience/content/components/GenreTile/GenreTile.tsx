@@ -13,7 +13,7 @@ export interface GenreTileProps {
 export const GenreTile = ({ name, image, color: backgroundColor }: GenreTileProps) => {
   return (
     <View style={[styles.container, { backgroundColor }]}>
-      <Text style={styles.name} fontSize={fontSize.body1}>
+      <Text style={styles.name} fontSize={fontSize.body1} numberOfLines={2}>
         {name}
       </Text>
       <Image uri={image} style={styles.cover} resizeMode="cover" />

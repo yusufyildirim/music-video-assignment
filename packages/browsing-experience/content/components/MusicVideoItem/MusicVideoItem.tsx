@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
   cover: { height: IMAGE_WIDTH, width: IMAGE_WIDTH },
   infoContainer: {
     paddingLeft: spacing.s12,
+    flex: 1,
   },
   song: { paddingTop: spacing.s8, paddingBottom: spacing.s4 },
 })
