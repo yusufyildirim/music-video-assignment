@@ -11,7 +11,6 @@ import * as React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { MiniPlayer } from './packages/listening-experience/mini-player'
 import { SearchScreen } from './packages/search-and-discovery/search-screen'
 
 // Enable this to use Storybook in native app
@@ -83,8 +82,6 @@ export default function App() {
               }}
             />
           </Tab.Navigator>
-
-          <MiniPlayer />
         </NavigationContainer>
       </SafeAreaProvider>
     </QueryClientProvider>
