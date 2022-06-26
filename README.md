@@ -46,9 +46,9 @@ Responsible of the user's browsing journey ans showing personalized content. A m
 It contains navigators, stacks, and all sorts of stuff. I'd move most of them to their own packages normally but didn't wanna add more and more packages just to make you (the reviewer) jump around a little less. So, it's a bit messy yes, but it's intended.
 
 ## Testing Story
-Having a good amount of test coverage is not an objective for this project. But, it has some amount of `unit` and `component` testing suits. Adding `Detox` for `E2E` testing was planned but it doesn't have `RN 0.68` support yet. 
+Having a good amount of test coverage is not an objective for this project. But, it has some amount of `unit` and `component` testing suits. Adding `Detox` for `E2E` testing was planned but it doesn't have `RN 0.68` support yet. Also, since we have `Storybook` ready, we can use `Chromatic` for `visual regression` testing with almost no effort.
 
-Tech Stack: `Jest`, `React Native Testing Library`, `React Native Owl`
+Tech Stack: `Jest`, `React Native Testing Library`
 
 ### How to run tests?
 Simple, just run:
